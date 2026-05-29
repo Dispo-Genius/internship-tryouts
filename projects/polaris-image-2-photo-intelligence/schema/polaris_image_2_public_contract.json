@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Dispo-Genius/internship-tryouts/projects/polaris-image-2-photo-intelligence/schema/polaris_image_2_public_contract.json",
+  "title": "Polaris Image 2 Public Contract",
+  "type": "object",
+  "required": ["property_id", "photos", "spaces", "property", "warnings"],
+  "additionalProperties": true,
+  "properties": {
+    "property_id": { "type": "string", "minLength": 1 },
+    "photos": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/photo" }
+    },
+    "spaces": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/space" }
+    },
+    "property": {
+      "type": "object",
+      "required": ["canonical_write_targets"],
+      "additionalProperties": true,
+      "properties": {
+        "canonical_write_targets": {
+          "type": "object",
+          "required": ["listing_hero_photo_id", "display_spaces"],
+          "additionalProperties": true,
+          "properties": {
+            "listing_hero_photo_id": { "type": "string", "minLength": 1 },
+            "display_spaces": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/display_space" }
+            }
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "photo": {
+      "type": "object",
+      "required": [
+        "id",
+        "visible_room_role",
+        "condition_level",
+        "image_quality",
+        "capture_source",
+        "scene",
+        "space_instance_hint",
+        "tags"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "visible_room_role": {
+          "enum": [
+            "exterior",
+            "kitchen",
+            "living_area",
+            "bedroom",
+            "bathroom",
+            "utility",
+            "other",
+            "unknown"
+          ]
+        },
+        "condition_level": {
+          "enum": ["EXCELLENT", "GOOD", "FAIR", "POOR", "SEVERE", null]
+        },
+        "image_quality": { "enum": ["good", "partial", "blurry", "bad"] },
+        "capture_source": { "enum": ["professional", "smartphone", "unknown"] },
+        "scene": { "type": "string" },
+        "space_instance_hint": { "type": ["string", "null"] },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "space": {
+      "type": "object",
+      "required": [
+        "id",
+        "display_label",
+        "space_type",
+        "photos",
+        "hero_photo_id",
+        "condition_level",
+        "confidence"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "display_label": { "type": "string", "minLength": 1 },
+        "space_type": {
+          "enum": [
+            "exterior",
+            "yard",
+            "kitchen",
+            "living_room",
+            "dining_room",
+            "bedroom",
+            "bathroom",
+            "utility",
+            "garage",
+            "other",
+            "unknown"
+          ]
+        },
+        "photos": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "hero_photo_id": { "type": "string", "minLength": 1 },
+        "condition_level": {
+          "enum": ["EXCELLENT", "GOOD", "FAIR", "POOR", "SEVERE", null]
+        },
+        "confidence": { "enum": ["low", "medium", "high"] }
+      }
+    },
+    "display_space": {
+      "type": "object",
+      "required": ["id", "display_label", "source_space_ids", "photos", "hero_photo_id"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "display_label": { "type": "string", "minLength": 1 },
+        "source_space_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "photos": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "hero_photo_id": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

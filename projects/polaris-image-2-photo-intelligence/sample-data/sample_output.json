@@ -1,0 +1,93 @@
+{
+  "property_id": "synthetic_public_001",
+  "photos": [
+    {
+      "id": "1",
+      "visible_room_role": "exterior",
+      "condition_level": "FAIR",
+      "image_quality": "good",
+      "capture_source": "unknown",
+      "scene": "front exterior view",
+      "space_instance_hint": "exterior_front",
+      "tags": ["front_exterior"]
+    },
+    {
+      "id": "2",
+      "visible_room_role": "kitchen",
+      "condition_level": "FAIR",
+      "image_quality": "good",
+      "capture_source": "unknown",
+      "scene": "kitchen view",
+      "space_instance_hint": "kitchen_1",
+      "tags": ["kitchen"]
+    },
+    {
+      "id": "3",
+      "visible_room_role": "bedroom",
+      "condition_level": "FAIR",
+      "image_quality": "good",
+      "capture_source": "unknown",
+      "scene": "bedroom view",
+      "space_instance_hint": "bedroom_1",
+      "tags": ["bedroom"]
+    }
+  ],
+  "spaces": [
+    {
+      "id": "space_exterior_front",
+      "display_label": "Exterior Front",
+      "space_type": "exterior",
+      "photos": ["1"],
+      "hero_photo_id": "1",
+      "condition_level": "FAIR",
+      "confidence": "medium"
+    },
+    {
+      "id": "space_kitchen",
+      "display_label": "Kitchen",
+      "space_type": "kitchen",
+      "photos": ["2"],
+      "hero_photo_id": "2",
+      "condition_level": "FAIR",
+      "confidence": "medium"
+    },
+    {
+      "id": "space_bedroom_1",
+      "display_label": "Bedroom",
+      "space_type": "bedroom",
+      "photos": ["3"],
+      "hero_photo_id": "3",
+      "condition_level": "FAIR",
+      "confidence": "medium"
+    }
+  ],
+  "property": {
+    "canonical_write_targets": {
+      "listing_hero_photo_id": "1",
+      "display_spaces": [
+        {
+          "id": "display_exterior_front",
+          "display_label": "Exterior Front",
+          "source_space_ids": ["space_exterior_front"],
+          "photos": ["1"],
+          "hero_photo_id": "1"
+        },
+        {
+          "id": "display_kitchen",
+          "display_label": "Kitchen",
+          "source_space_ids": ["space_kitchen"],
+          "photos": ["2"],
+          "hero_photo_id": "2"
+        },
+        {
+          "id": "display_bedroom",
+          "display_label": "Bedroom",
+          "source_space_ids": ["space_bedroom_1"],
+          "photos": ["3"],
+          "hero_photo_id": "3"
+        }
+      ]
+    }
+  },
+  "warnings": []
+}

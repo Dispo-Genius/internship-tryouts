@@ -1,0 +1,23 @@
+{
+  "property_id": "synthetic_public_001",
+  "photos": [
+    {
+      "photo_id": "1",
+      "url": "https://example.com/synthetic/front-exterior.jpg",
+      "position": 1,
+      "notes": "front exterior"
+    },
+    {
+      "photo_id": "2",
+      "url": "https://example.com/synthetic/kitchen.jpg",
+      "position": 2,
+      "notes": "kitchen"
+    },
+    {
+      "photo_id": "3",
+      "url": "https://example.com/synthetic/bedroom.jpg",
+      "position": 3,
+      "notes": "bedroom"
+    }
+  ]
+}
