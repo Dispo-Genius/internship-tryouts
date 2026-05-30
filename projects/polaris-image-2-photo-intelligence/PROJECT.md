@@ -53,8 +53,13 @@ contract. You may add fields, but the required fields must remain valid.
 
 ## Sample Data
 
-This repo includes tiny synthetic inputs under `sample-data/`. You should add or
-generate a larger public-safe evaluation set if your approach needs it.
+This repo includes tiny synthetic contract examples under `sample-data/`. Those
+examples are for validating JSON shape and ID coverage; the image URLs are
+placeholders by design.
+
+For model or visual-quality work, add your own public-safe image set using
+public-domain/licensed photos, generated images, or images you have permission
+to use. Document the source and license/permission in your submission.
 
 ## Acceptance Criteria
 
@@ -62,7 +67,8 @@ A strong approved submission must:
 
 - Run from a clean checkout with documented commands.
 - Produce valid JSON for the sample input.
-- Pass the provided validator.
+- Pass the provided validator:
+  `python3 projects/polaris-image-2-photo-intelligence/scripts/validate_output.py --input <input.json> --output <output.json>`.
 - Preserve exact input photo IDs with no missing, duplicate, or hallucinated
   references.
 - Include at least one non-trivial full-tour sample output.
@@ -95,3 +101,9 @@ Your folder should include:
 - runnable source code
 - sample outputs
 - validation or benchmark commands
+
+## Data Safety
+
+Do not include private Covent data, customer images, scraped private images,
+teacher labels, internal prompts, Slack exports, API keys, or local-machine
+paths. Public submissions should be reproducible using only public-safe inputs.
