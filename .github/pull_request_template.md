@@ -14,6 +14,16 @@ Validation command:
 
 Benchmark command, if any:
 
+## Time Spent
+
+When did you start?
+
+When did you finish?
+
+Approximate focused hours:
+
+Notes on interruptions, AI/tooling help, or reused prior work:
+
 ## Data Safety
 
 - [ ] No secrets, API keys, tokens, or credentials are included.

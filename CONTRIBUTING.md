@@ -16,6 +16,7 @@ Your submission should include:
 - [ ] The project runs from a clean checkout.
 - [ ] Setup commands are documented.
 - [ ] Validation commands are documented.
+- [ ] Self-reported time spent is included in the PR body.
 - [ ] No secrets or private data are committed.
 - [ ] The writeup explains what was intentionally left out.
 

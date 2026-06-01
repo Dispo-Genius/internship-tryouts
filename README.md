@@ -34,3 +34,5 @@ We review for:
 
 Do not include secrets, private customer data, raw proprietary datasets, or
 credentials in submissions.
+
+See `RUBRIC.md` for the scoring rubric we use to judge submissions.
