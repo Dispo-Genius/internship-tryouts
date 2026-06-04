@@ -28,6 +28,22 @@ perfect time tracking. A good-faith estimate is enough.
 | Validation, tests, and evidence | 10 | Focused tests, validator output, benchmark notes, screenshots/video, and honest failure analysis. |
 | Communication and writeup | 5 | Clear tradeoffs, what was cut, what would come next, and how AI/tools were used. |
 
+## Bonus Points
+
+Bonus points do not rescue a broken core submission. They help distinguish
+strong, complete submissions from excellent ones.
+
+| Bonus Area | Max | What Earns It |
+| --- | ---: | --- |
+| Design taste and product polish | 10 | A calm, dense, operator-ready UI; strong visual hierarchy; responsive layouts; thoughtful empty/loading/error states; no marketing-page filler. |
+| Video intelligence ambition | 10 | Meaningful room/space chaptering, timestamp quality, video-to-photo sync, frame/evidence inspection, and useful handling of ambiguous segments. |
+| Model and routing judgment | 8 | Clear cheap-path versus VLM/video-model routing, confidence thresholds, fallback behavior, latency/cost tradeoffs, and no unnecessary paid calls. |
+| Production readiness | 8 | Credible deploy plan, storage/background-job design, observability, secrets handling, retry/idempotency strategy, and realistic cost model. |
+| Evaluation depth | 8 | Labeled sample set, metrics, failure analysis, confusion examples, and comparison against a simple baseline. |
+| Communication artifact quality | 6 | Clear walkthrough video, screenshots, architecture diagram, and concise writeup that makes the candidate's reasoning easy to review. |
+
+Maximum bonus: 50 points.
+
 ## Strong Signals
 
 - The project runs with the documented commands.
@@ -74,16 +90,21 @@ Primary judging questions:
 
 Extra credit:
 
-- meaningful benchmark set
-- confusion/error analysis
-- queued/job-style processing
-- deployed demo
-- confidence/uncertainty display
-- hybrid cheap classifier plus VLM routing design
-- latency and cost estimate grounded in the selected architecture
-- deterministic compiler/validator separation
-- frame extraction or embedding-based alignment between video segments and still
-  photos
+- Excellent design taste: the UI feels like a real internal review tool, with
+  scannable density, strong hierarchy, tasteful media presentation, and complete
+  interaction states.
+- Strong video-model work: reliable chapter boundaries, meaningful room labels,
+  synced still-photo evidence, and clear handling of uncertain or mixed-room
+  clips.
+- Meaningful benchmark set and confusion/error analysis.
+- Queued/job-style processing.
+- Deployed demo.
+- Confidence or uncertainty display.
+- Hybrid cheap classifier plus VLM/video-model routing design.
+- Latency and cost estimate grounded in the selected architecture.
+- Deterministic compiler/validator separation.
+- Frame extraction or embedding-based alignment between video segments and
+  still photos.
 
 ### Property Insights Review UI
 
@@ -97,6 +118,7 @@ Primary judging questions:
 
 Extra credit:
 
+- strong design taste and visual polish without sacrificing density
 - screenshot or video QA across viewports
 - clean component/state architecture
 - strong empty/error/loading/reviewed states

@@ -150,6 +150,25 @@ A strong approved submission must:
 - Include a writeup with architecture, API design, data/model choices,
   deployment plan, limitations, and what you would improve with more time.
 
+## Bonus Points
+
+The core bar is a runnable, validated product demo. Bonus points reward work
+that makes the submission feel closer to a real production seed:
+
+- Design taste: a polished, dense review UI with strong media layout, clear
+  hierarchy, responsive behavior, and complete empty/loading/error states.
+- Video intelligence: accurate room/space chaptering, timestamped evidence,
+  chapter-to-photo sync, and graceful handling of ambiguous walkthrough clips.
+- Model judgment: a clear explanation of cheap-path, image-model, video-model,
+  VLM, or hybrid routing choices, including confidence thresholds and fallback
+  behavior.
+- Production readiness: realistic deployment architecture, background jobs,
+  storage, observability, secrets handling, retry behavior, and cost model.
+- Evaluation depth: labeled examples, metrics, baseline comparison, failure
+  analysis, and representative screenshots or video captures.
+- Communication quality: a concise walkthrough video, screenshots, architecture
+  diagram, and writeup that make the system easy to judge quickly.
+
 ## Suggested Milestones
 
 1. Parser and validator.
