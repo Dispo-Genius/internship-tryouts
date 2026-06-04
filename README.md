@@ -11,7 +11,9 @@ submission should be runnable, well-tested, and honest about tradeoffs.
 2. Build your solution in your own fork.
 3. Add a `WRITEUP.md` that explains your approach, decisions, tradeoffs, and
    what you would do next.
-4. Open a pull request into this repo.
+4. Include a cost/deployment report and a walkthrough video link when the
+   project asks for a runnable product demo.
+5. Open a pull request into this repo.
 
 Code submissions should live under:
 
