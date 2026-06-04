@@ -2,41 +2,50 @@
 
 ## Summary
 
-Build a polished frontend workspace for reviewing property intelligence signals.
-The app should help an operator inspect a property, compare conflicting signals,
-and decide what needs follow-up.
+Build a polished frontend workspace for reviewing property intelligence cases.
+The app should help an operator move through a queue, inspect a property,
+compare conflicting signals, review source evidence, and decide what needs
+follow-up.
 
-This is a public, mock-data tryout version of the kind of operational UI Covent
-builds. The goal is to show frontend taste, state handling, accessibility,
-component discipline, and evidence-backed delivery.
+This is the frontend/product-taste tryout. It is intentionally separate from
+the Polaris photo/video intelligence project: no model pipeline is required.
+The goal is to show UI judgment, information hierarchy, state handling,
+accessibility, component discipline, and evidence-backed delivery.
 
 ## Problem
 
-Property intelligence products often combine signals from listings, photos,
-transaction history, maps, owner records, and model-generated summaries. Those
-signals can conflict. A good internal UI should make the conflict obvious,
-preserve source evidence, and help a human make a confident decision quickly.
+Property intelligence products combine signals from listings, photos,
+transaction history, maps, owner records, valuation models, risk notes, and
+operator-entered context. Those signals often disagree. A good internal UI
+should make the conflict obvious, preserve source evidence, and help a human
+make a confident decision quickly.
 
 Your task is to build a compact review workspace that feels like a real product,
 not a landing page. It should be dense, calm, scannable, and useful for repeated
-operator work.
+operator work. The first screen should be the working review queue itself.
 
 ## Scope
 
 Build a frontend app that includes:
 
-- A property header with address, status, estimated value, and confidence.
-- A signal review panel with at least 6 mock signals across categories such as
-  valuation, ownership, sale history, property condition, photo quality, and map
-  marker formatting.
-- A conflict or anomaly state for at least 2 signals.
+- A review queue with multiple property cases.
+- A property header with address, priority, status, estimated value, confidence,
+  and key facts.
+- A signal review panel with categories such as valuation, ownership, sale
+  history, condition, photos, maps, risk, and listing notes.
+- A conflict or anomaly state for at least 3 signals.
 - A source/evidence drawer or detail panel for a selected signal.
-- Review actions such as `Approve`, `Needs follow-up`, and `Dismiss`.
+- Review actions such as `Approve`, `Needs follow-up`, `Dismiss`, and
+  `Escalate`.
 - Filtering or segmented controls for signal status/category.
+- Queue-level summary counts for open conflicts, reviewed cases, and priority.
+- A compact activity or decision trail showing what the reviewer changed.
 - Loading, empty, error, and reviewed states.
 - Responsive layouts for desktop and mobile.
 
-Use mock data only. No backend is required.
+Use mock data only. No backend is required. The included
+`mock-data/property_review_cases.json` file is the baseline dataset; you can
+reshape it in your app as long as the same review scenarios remain visible.
 
 ## Out Of Scope
 
@@ -45,21 +54,47 @@ Use mock data only. No backend is required.
 - No paid APIs.
 - No private maps, customer screenshots, or internal screenshots.
 - No backend persistence requirement. Local state is enough.
+- No requirement to use the PhotoTours fixtures from the Polaris project.
 
 ## Acceptance Criteria
 
 A strong approved submission must:
 
 - Run from a clean checkout with documented setup and run commands.
-- Render a usable first screen with the review workspace itself, not a marketing
-  page.
-- Use realistic mock data and make conflicting signals easy to spot.
+- Render a usable first screen with the review queue itself, not a marketing
+  page or generic dashboard.
+- Use the included multi-case mock data and make conflicting signals easy to
+  spot.
+- Let a reviewer switch between cases without losing local review state.
+- Show source evidence clearly for each selected signal.
+- Provide review actions that visibly update status, counts, or the decision
+  trail.
 - Include loading, empty, error, selected-detail, and reviewed states.
+- Include category/status filters that are useful on the provided dataset.
 - Provide keyboard-accessible controls and visible focus states.
 - Avoid layout overlap at common mobile and desktop widths.
-- Include a short visual QA section with screenshots or screen recording links.
-- Include a writeup explaining component structure, state model, and design
-  tradeoffs.
+- Include visual QA screenshots or a short screen recording across desktop and
+  mobile widths.
+- Include a writeup explaining the review workflow, component structure, state
+  model, accessibility checks, and design tradeoffs.
+
+## Bonus Points
+
+This project should reward taste and operator empathy. Strong bonus signals:
+
+- Exceptional information hierarchy: the reviewer can identify the property,
+  biggest conflict, source evidence, and next action within seconds.
+- Dense but calm design: compact enough for repeated internal work without
+  looking cluttered or decorative.
+- Thoughtful conflict visualization: severity, source disagreement, and
+  recommended action are visible without excessive reading.
+- Fast workflow: keyboard-friendly navigation, useful filters, persisted local
+  state, and low-friction review actions.
+- Strong responsive behavior: mobile is reorganized for review, not merely
+  squeezed.
+- Design-system discipline: consistent tokens, spacing, focus states, and
+  reusable components.
+- Visual QA: before/after notes, screenshots, and explicit viewport checks.
 
 ## Suggested Stack
 
@@ -73,7 +108,9 @@ framework choice. Good options:
 
 ## Suggested Mock Signal Shape
 
-You can use your own schema, but this shape is enough:
+The provided `mock-data/property_review_cases.json` file includes multiple
+cases. You can use your own schema, but each signal should preserve this kind of
+information:
 
 ```json
 {
@@ -97,8 +134,10 @@ Your `WRITEUP.md` should explain:
 
 - What user workflow you optimized for.
 - How you structured components and state.
+- How your review actions and filters work.
 - How you handled responsive layout.
 - What accessibility checks you performed.
+- Where your design intentionally chose density, hierarchy, or restraint.
 - What you would add with another week.
 
 ## Submission Location

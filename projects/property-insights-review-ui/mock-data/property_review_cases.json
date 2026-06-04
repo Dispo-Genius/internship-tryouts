@@ -1,0 +1,234 @@
+{
+  "queue": {
+    "name": "Property Intelligence Review Queue",
+    "description": "Frontend-only mock cases for reviewing conflicting property intelligence signals.",
+    "generatedAt": "2026-06-04",
+    "reviewerRole": "Operations analyst"
+  },
+  "cases": [
+    {
+      "id": "case-west-palm-5213",
+      "priority": "high",
+      "status": "needs_review",
+      "property": {
+        "address": "5213 52nd Way, West Palm Beach, FL 33409",
+        "market": "Palm Beach County, FL",
+        "propertyType": "Single Family Residential",
+        "estimatedValue": 293000,
+        "confidence": "medium",
+        "beds": 3,
+        "baths": 2,
+        "livingAreaSqft": 1420,
+        "lastUpdated": "2026-05-29T15:20:00Z"
+      },
+      "summary": {
+        "headline": "Ownership and sale-history signals disagree before outreach.",
+        "recommendedNextStep": "Resolve owner role and closing-date conflict before approving campaign use.",
+        "openConflicts": 3,
+        "approvedSignals": 2
+      },
+      "signals": [
+        {
+          "id": "sale-price-conflict",
+          "category": "sale_history",
+          "title": "Duplicate same-price sale events",
+          "status": "conflict",
+          "severity": "high",
+          "summary": "Two adjacent sale events share the same price but disagree on date.",
+          "evidence": [
+            { "label": "Sale event A", "value": "$305,000 on 2022-03-01", "source": "county deed feed" },
+            { "label": "Sale event B", "value": "$305,000 on 2022-03-02", "source": "transaction normalizer" }
+          ],
+          "recommendedAction": "Verify canonical closing date before showing timeline."
+        },
+        {
+          "id": "owner-role-mismatch",
+          "category": "ownership",
+          "title": "Owner role mismatch",
+          "status": "conflict",
+          "severity": "high",
+          "summary": "The owner card and transaction chain point to different entities.",
+          "evidence": [
+            { "label": "Card owner", "value": "Victoria Blum", "source": "property card" },
+            { "label": "Transaction chain", "value": "Proceed Real Estate Group", "source": "deed chain" }
+          ],
+          "recommendedAction": "Normalize buyer, seller, and current-owner roles before outreach."
+        },
+        {
+          "id": "map-marker-rounding",
+          "category": "map",
+          "title": "Map marker hides value precision",
+          "status": "needs_follow_up",
+          "severity": "medium",
+          "summary": "The map marker shows exactly 1M while nearby markers preserve decimal precision.",
+          "evidence": [
+            { "label": "Subject marker", "value": "1M", "source": "map cluster" },
+            { "label": "Nearby markers", "value": "1.4M, 962k, 610k", "source": "map cluster" }
+          ],
+          "recommendedAction": "Show one decimal above $1M unless the value rounds exactly to 1.0M."
+        },
+        {
+          "id": "condition-photo-signal",
+          "category": "condition",
+          "title": "Exterior condition suggests repairs",
+          "status": "open",
+          "severity": "medium",
+          "summary": "Photo labels indicate worn exterior surfaces and possible deferred maintenance.",
+          "evidence": [
+            { "label": "Photo tags", "value": "peeling paint, worn porch, overgrown yard", "source": "photo classifier" },
+            { "label": "Photo quality", "value": "smartphone, partial coverage", "source": "photo QA" }
+          ],
+          "recommendedAction": "Request clearer exterior and roof photos before final pricing."
+        },
+        {
+          "id": "valuation-confidence",
+          "category": "valuation",
+          "title": "Valuation confidence is moderate",
+          "status": "approved",
+          "severity": "low",
+          "summary": "Comparable signals are consistent enough to show an estimate with confidence language.",
+          "evidence": [
+            { "label": "Estimate", "value": "$293,000", "source": "valuation model" },
+            { "label": "Confidence", "value": "Medium", "source": "valuation model" }
+          ],
+          "recommendedAction": "Display with confidence language rather than as a precise fact."
+        }
+      ]
+    },
+    {
+      "id": "case-detroit-19457",
+      "priority": "medium",
+      "status": "in_progress",
+      "property": {
+        "address": "19457 Mark Twain St, Detroit, MI 48235",
+        "market": "Wayne County, MI",
+        "propertyType": "Single Family Residential",
+        "estimatedValue": 118000,
+        "confidence": "low",
+        "beds": 4,
+        "baths": 1.5,
+        "livingAreaSqft": 1998,
+        "lastUpdated": "2026-05-31T18:05:00Z"
+      },
+      "summary": {
+        "headline": "Large photo tour suggests extra spaces that listing facts do not explain.",
+        "recommendedNextStep": "Review basement, attic, and utility evidence before approving the space summary.",
+        "openConflicts": 2,
+        "approvedSignals": 1
+      },
+      "signals": [
+        {
+          "id": "space-count-mismatch",
+          "category": "photos",
+          "title": "Photo-derived spaces exceed listing facts",
+          "status": "conflict",
+          "severity": "high",
+          "summary": "The tour includes basement, attic, stairs, sunroom, and utilities, but listing facts only describe a standard 4-bed layout.",
+          "evidence": [
+            { "label": "Photo labels", "value": "basement, attic, water heater, gas meter, sunroom", "source": "photo tour" },
+            { "label": "Listing facts", "value": "4 bed, 1.5 bath, 1,998 sqft", "source": "listing feed" }
+          ],
+          "recommendedAction": "Separate confirmed living spaces from support/utility spaces in the summary."
+        },
+        {
+          "id": "condition-unknowns",
+          "category": "condition",
+          "title": "Four-point conditions are mostly unknown",
+          "status": "needs_follow_up",
+          "severity": "medium",
+          "summary": "Roof, plumbing, and foundation conditions are unknown while HVAC has no clear recency signal.",
+          "evidence": [
+            { "label": "Roof", "value": "Unknown / not inspected", "source": "seller notes" },
+            { "label": "Foundation", "value": "Unknown / not inspected", "source": "seller notes" }
+          ],
+          "recommendedAction": "Flag missing four-point condition evidence before underwriting."
+        },
+        {
+          "id": "valuation-low-confidence",
+          "category": "valuation",
+          "title": "Low confidence valuation",
+          "status": "open",
+          "severity": "medium",
+          "summary": "The estimate should not be shown as a precise offer anchor because condition and space classification are unresolved.",
+          "evidence": [
+            { "label": "Estimate", "value": "$118,000", "source": "valuation model" },
+            { "label": "Confidence", "value": "Low", "source": "valuation model" }
+          ],
+          "recommendedAction": "Show a range and require manual review before outbound use."
+        }
+      ]
+    },
+    {
+      "id": "case-port-richey-11024",
+      "priority": "low",
+      "status": "ready_for_review",
+      "property": {
+        "address": "11024 Tyler Dr, Port Richey, FL 34668",
+        "market": "Pasco County, FL",
+        "propertyType": "Single Family Residential",
+        "estimatedValue": 180000,
+        "confidence": "medium",
+        "beds": 2,
+        "baths": 1,
+        "livingAreaSqft": 792,
+        "lastUpdated": "2026-05-13T20:56:00Z"
+      },
+      "summary": {
+        "headline": "Investment notes and property facts need a compact review pass.",
+        "recommendedNextStep": "Confirm unfinished garage-bedroom note before approving public-facing copy.",
+        "openConflicts": 1,
+        "approvedSignals": 3
+      },
+      "signals": [
+        {
+          "id": "unfinished-bedroom-note",
+          "category": "listing",
+          "title": "Unfinished bedroom note affects room count",
+          "status": "needs_follow_up",
+          "severity": "medium",
+          "summary": "Seller notes mention an unfinished third bedroom in the garage, but canonical property facts show two bedrooms.",
+          "evidence": [
+            { "label": "Seller note", "value": "Unfinished 3bd in garage + 288 sqft", "source": "listing notes" },
+            { "label": "Canonical facts", "value": "2 bed, 1 bath", "source": "property facts" }
+          ],
+          "recommendedAction": "Keep canonical bedroom count at two unless the garage conversion is verified."
+        },
+        {
+          "id": "flood-zone-note",
+          "category": "risk",
+          "title": "Flood zone note is explicit",
+          "status": "approved",
+          "severity": "low",
+          "summary": "The notes identify Flood Zone X, which can be shown as a low-severity risk detail.",
+          "evidence": [
+            { "label": "Flood note", "value": "Flood zone X", "source": "listing notes" }
+          ],
+          "recommendedAction": "Display as supporting context, not a blocker."
+        },
+        {
+          "id": "arv-supported",
+          "category": "valuation",
+          "title": "ARV has nearby comp support",
+          "status": "approved",
+          "severity": "low",
+          "summary": "Three nearby comps cluster around the stated after-repair value.",
+          "evidence": [
+            { "label": "ARV", "value": "$180,000", "source": "seller packet" },
+            { "label": "Comps", "value": "$185k, $190k, $185k", "source": "listing notes" }
+          ],
+          "recommendedAction": "Show comp-backed ARV with source evidence."
+        }
+      ]
+    }
+  ],
+  "uiStates": [
+    "loading",
+    "empty_queue",
+    "error",
+    "selected_case",
+    "selected_signal_detail",
+    "filter_by_category",
+    "filter_by_status",
+    "reviewed_case"
+  ]
+}
