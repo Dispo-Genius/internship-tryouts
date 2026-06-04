@@ -14,6 +14,12 @@ Validation command:
 
 Benchmark command, if any:
 
+Demo video link:
+
+Deployment link, if any:
+
+Cost/deployment report:
+
 ## Time Spent
 
 When did you start?
@@ -36,3 +42,6 @@ Notes on interruptions, AI/tooling help, or reused prior work:
 - [ ] `WRITEUP.md` explains architecture and major decisions.
 - [ ] It includes failure modes and known limitations.
 - [ ] It explains what would improve with more time.
+- [ ] It includes runtime cost assumptions, deployment plan, and expected
+      operating constraints when the project uses a backend, model, or hosted
+      service.

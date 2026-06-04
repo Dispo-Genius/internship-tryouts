@@ -11,7 +11,8 @@ Every submission should include:
 - setup, run, validation, and benchmark commands
 - `WRITEUP.md`
 - self-reported start time, finish time, and approximate focused hours
-- screenshots, video, or deployed demo when relevant
+- screenshots and a walkthrough video when relevant
+- cost and deployment report for any backend, model, or hosted-service project
 
 Self-reported time helps us understand pace and scope judgment. We do not need
 perfect time tracking. A good-faith estimate is enough.
@@ -33,6 +34,8 @@ perfect time tracking. A good-faith estimate is enough.
 - Validation failures are understandable and actionable.
 - The output is not hardcoded to the sample.
 - The candidate can explain why they chose the architecture.
+- The candidate can explain how they would deploy it and what it would cost to
+  run.
 - The UI handles loading, empty, error, and success states.
 - The candidate reports limitations honestly.
 - The candidate keeps private data and secrets out of the repo.
@@ -53,19 +56,34 @@ perfect time tracking. A good-faith estimate is enough.
 
 Primary judging questions:
 
+- Can a reviewer upload or load multiple property photos and run analysis?
 - Does the output preserve every input photo ID exactly once?
 - Does it pass the public validator?
+- Does the UI expose validator status, warnings, and raw output clearly?
+- Does it chapter walkthrough videos into useful room/space segments?
+- Does it sync video chapters with the still photos and grouped spaces?
 - Are per-photo labels plausible and useful?
 - Are spaces and hero photos reasonable?
+- Are generated titles and descriptions clear enough for a reviewer or listing
+  workflow?
 - Is there a real evaluation report, not just a happy-path sample?
-- Is the system honest about whether it is cheap-path, VLM-only, or hybrid?
+- Is the system honest about whether it is cheap-path, image/video-model-only,
+  or hybrid?
+- Does the submission include a walkthrough video, deployment plan, and cost
+  report?
 
 Extra credit:
 
 - meaningful benchmark set
 - confusion/error analysis
-- latency and cost estimate
+- queued/job-style processing
+- deployed demo
+- confidence/uncertainty display
+- hybrid cheap classifier plus VLM routing design
+- latency and cost estimate grounded in the selected architecture
 - deterministic compiler/validator separation
+- frame extraction or embedding-based alignment between video segments and still
+  photos
 
 ### Property Insights Review UI
 
@@ -82,24 +100,6 @@ Extra credit:
 - screenshot or video QA across viewports
 - clean component/state architecture
 - strong empty/error/loading/reviewed states
-
-### Photo Intelligence Full-Stack Demo
-
-Primary judging questions:
-
-- Can a reviewer upload multiple images and run analysis?
-- Are frontend, backend, storage, analysis, and validation boundaries clear?
-- Does the output match the public contract?
-- Does the UI expose validator status and raw output?
-- Is the implementation credible as a production seed?
-
-Extra credit:
-
-- queued/job-style processing
-- deployed demo
-- confidence/uncertainty display
-- hybrid cheap classifier plus VLM routing design
-- API contract tests
 
 ## Time Spent
 
