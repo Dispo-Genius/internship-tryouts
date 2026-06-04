@@ -110,18 +110,24 @@ Extra credit:
 
 Primary judging questions:
 
-- Is the review workflow obvious within the first screen?
+- Is the review queue and current operator task obvious within the first screen?
 - Are conflicts and source evidence easy to scan?
 - Are filters, detail states, and review actions complete?
+- Do review actions update local state, counts, or a decision trail in a way
+  that feels real?
+- Does the candidate use the multi-case mock data instead of flattening it into
+  one static example?
 - Does it work on desktop and mobile?
 - Are controls keyboard-accessible?
 
 Extra credit:
 
-- strong design taste and visual polish without sacrificing density
-- screenshot or video QA across viewports
-- clean component/state architecture
-- strong empty/error/loading/reviewed states
+- Strong design taste and visual polish without sacrificing density.
+- Thoughtful conflict visualization and evidence hierarchy.
+- Fast keyboard-friendly review workflow.
+- Screenshot or video QA across viewports.
+- Clean component/state architecture.
+- Strong empty/error/loading/reviewed states.
 
 ## Time Spent
 
